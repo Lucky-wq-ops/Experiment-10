@@ -1,0 +1,17 @@
+# Use lightweight Node image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy files
+COPY . .
+
+# Install dependencies (if needed)
+RUN npm install || true
+
+# Expose port
+EXPOSE 3000
+
+# Start app (for static site, just serve files)
+CMD ["npx", "serve", "."]
